@@ -14,14 +14,14 @@ birth_year = int(input("Enter your year of birth (eg 2000):"))
 def only_int(birth_year):
     try: 
         if type(birth_year) == "int": 
-            #current the determinant value
-            user_category_value = current_year - birth_year
             return user_category_value
         else: 
            print("Sorry, please enter year in numbers")
            return False
     except ValueError:
         return False
+#current the determinant value
+user_category_value = current_year - birth_year
 
 #define function to determine the user category
 def user_type(user_category_value):
