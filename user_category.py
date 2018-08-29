@@ -1,4 +1,4 @@
-#import the datetime python package to hel us get the current year
+#import the datetime python package to help us get the current year
 import datetime
 
 #get current time
@@ -7,21 +7,30 @@ current_time = datetime.datetime.now()
 #pick current year
 current_year = current_time.year
 
-#prompt user to enter their year of birth
-birth_year = int(input("Enter your year of birth (eg 2000):"))
-
 #make sure user enters only int values
-def only_int(birth_year):
-    try: 
-        if type(birth_year) == "int": 
-            return user_category_value
-        else: 
-           print("Sorry, please enter year in numbers")
-           return False
-    except ValueError:
-        return False
-#current the determinant value
-user_category_value = current_year - birth_year
+def number():
+    while True:
+        try:
+            #prompt user to enter their year of birth
+            birth_year = int(input("Enter your year of birth (eg 2000):"))
+        except ValueError:
+            print("Sorry, please enter year in numbers")
+            continue
+        if birth_year < 0:
+            print("Your Entered a negative value")
+            continue
+        elif birth_year > current_year:
+            print("You cannot be born in future ")
+            continue
+        elif birth_year < 1800:
+            print("You must be dead by now")
+            continue
+        else:
+            return birth_year
+            break
+
+#the determinant value
+user_category_value = current_year - number()
 
 #define function to determine the user category
 def user_type(user_category_value):
@@ -32,16 +41,12 @@ def user_type(user_category_value):
     elif user_category_value <= 36:
         print("Your user category is: Youth")
         return
-    
-    elif user_category_value <= 0:
-        print("Your Entered a negative value")
-        return
 
     elif user_category_value > 36:
         print("Your user category is: Elder")
         return
     else:
-        print("Please re-enter your year of birth")
+        print("Sorry, please re-enter year in numbers")
         return False
 
 #display user category
