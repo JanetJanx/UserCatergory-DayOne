@@ -3,7 +3,7 @@ import datetime
 
 #get current time
 current_time = datetime.datetime.now()
-
+    
 #pick current year
 current_year = current_time.year
 
@@ -28,26 +28,24 @@ def number():
         else:
             return birth_year
             break
-
 #the determinant value
 user_category_value = current_year - number()
 
 #define function to determine the user category
 def user_type(user_category_value):
+    
     if user_category_value < 18:
-        print ("Your user category is: Minor")
-        return "Your user category is: Minor"
+        cat_message = "Your user category is: Minor"
+        return cat_message
 
     elif user_category_value <= 36:
-        print ("Your user category is: Youth")
-        return "Your user category is: Youth"
+        cat_message = "Your user category is: Youth"
+        return cat_message
 
-    elif user_category_value > 36:
-        print ("Your user category is: Elder")
-        return "Your user category is: Elder"
     else:
-        print ("Sorry, please re-enter year in numbers")
-        return "Sorry, please re-enter year in numbers"
+        cat_message = "Your user category is: Elder"
+        return cat_message
+        
 
 #display user category
-user_type(user_category_value)
+print (user_type(user_category_value))
