@@ -7,45 +7,40 @@ current_time = datetime.datetime.now()
 #pick current year
 current_year = current_time.year
 
-#make sure user enters only int values
-def number():
-    while True:
+#make sure only int values are processed
+def user_age():
         try:
             #prompt user to enter their year of birth
             birth_year = int(input("Enter your year of birth (eg 2000):"))
+            user_category_value = current_year - birth_year
+
         except ValueError:
-            print("Sorry, please enter year in numbers")
-            continue
+            return "Sorry, please enter year in numbers"
+           
         if birth_year < 0:
-            print("Your Entered a negative value")
-            continue
+            return "Your Entered a negative value"
+            
         elif birth_year > current_year:
-            print("You cannot be born in future ")
-            continue
+            return "You cannot be born in future "
+            
         elif birth_year < 1800:
-            print("You must be dead by now")
-            continue
-        else:
-            return birth_year
-            break
-#the determinant value
-user_category_value = current_year - number()
+            return "You must be dead by now"
+            
+        return user_category(user_category_value)
 
-#define function to determine the user category
-def user_type(user_category_value):
-    
-    if user_category_value < 18:
+ #find the user category from the user_age values provided      
+def user_category(user_value):
+
+    if user_value < 18:
         cat_message = "Your user category is: Minor"
-        return cat_message
-
-    elif user_category_value <= 36:
+                    
+    elif user_value <= 36:
         cat_message = "Your user category is: Youth"
-        return cat_message
-
+                    
     else:
         cat_message = "Your user category is: Elder"
-        return cat_message
-        
+                
+    return cat_message
 
 #display user category
-print (user_type(user_category_value))
+print(user_age())   
