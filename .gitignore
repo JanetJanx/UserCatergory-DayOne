@@ -1,2 +1,4 @@
 user_category.pyc
 *.pyc 
+my_env
+.coverage
