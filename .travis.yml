@@ -4,7 +4,7 @@ python:
   - 3.6
 
 script:
-- nosetests --with-coverage
+- nosetests --with-coverage --cover-package=app
 
 after_success:
 - coveralls

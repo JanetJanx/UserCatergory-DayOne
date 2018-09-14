@@ -1,6 +1,6 @@
 import unittest
 
-from user_category import user_category, user_age
+from app.user_category import user_category, user_age
 
 
 class TestUser(unittest.TestCase):
